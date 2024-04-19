@@ -1,0 +1,19 @@
+@PORT = 3002
+@BASE_URL = http://localhost:{{PORT}}
+@RESOURCE = movie
+@FULL_URL = {{BASE_URL}}/{{RESOURCE}}
+
+### INDEX MOVIE
+GET {{FULL_URL}}?user_id=1&title=merc&tag=drama HTTP/1.1
+Content-Type: application/json
+
+### CREATE MOVIE
+POST {{FULL_URL}}/create/2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Cangaceiros",
+  "description": "Um filme muito doido onde 7 homens se juntam para matar bandidos por dinheiro",
+  "rating": "4.5",
+  "tags": "ação-drama"
+}
