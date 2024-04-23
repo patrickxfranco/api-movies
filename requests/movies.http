@@ -4,16 +4,38 @@
 @FULL_URL = {{BASE_URL}}/{{RESOURCE}}
 
 ### INDEX MOVIE
-GET {{FULL_URL}}?user_id=1&title=merc&tag=drama HTTP/1.1
+GET {{FULL_URL}}/movies/1?name=e&tags=aventura HTTP/1.1
 Content-Type: application/json
 
 ### CREATE MOVIE
-POST {{FULL_URL}}/create/2 HTTP/1.1
+POST {{FULL_URL}}/create/1 HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Cangaceiros",
-  "description": "Um filme muito doido onde 7 homens se juntam para matar bandidos por dinheiro",
-  "rating": "4.5",
-  "tags": "ação-drama"
+  "name": "Mercenários",
+  "description": "",
+  "rating": "3",
+  "tags": "ação"
 }
+
+### SHOW MOVIE
+GET {{FULL_URL}}/3 HTTP/1.1
+Content-Type: application/json
+
+{
+  "user_id": 1
+}
+
+### UPDATE MOVIE
+PUT {{FULL_URL}}/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "newName": "Os Mercenários",
+  "newDescription": "Um filme de homens que matam por dinheiro",
+  "newRating": "5",
+  "newTags": "ação-aventura-drama"
+}
+
+### DELETE MOVIE
+DELETE {{FULL_URL}}/1 HTTP/1.1
